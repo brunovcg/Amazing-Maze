@@ -11,12 +11,45 @@
 </head>
 <body>
 
-<button id="startGame">Start Game</button>
+<header>
+    <div id="title">
+        <h1>Amazing-Maze</h1>
+        <img src="img/player.png" alt="player" id="imgTitle">
+    </div>
+  
+    <div id="selectMap">
+        <div class="mapAnounce">Click to set you MAP!</div>
+
+        <div class="maps">
+            <h4 class="mapTitle">MAP 1</h4>
+            <img src="img/map1.png" alt="map1" class="mapsImg" id="mapOne">
+        </div>
+        <div class="maps">
+            <h4 class="mapTitle">MAP 2</h4>
+            <img src="img/map2.png" alt="map2" class="mapsImg" id="mapTwo">
+        </div>
+        <div class="maps">
+            <h4 class="mapTitle">MAP 3</h4>
+            <img src="img/map3.png" alt="map3" class="mapsImg" id="mapThree">
+        </div>
+    </div>
+
+    <div id="botao">
+        <button id="startGame">Start Game</button>
+        <button id="restartGame">Restart Game</button>
+    </div>
+
+</header>
 
 <main>
+
     <section id="gameBoard"></section>
 
-    <article id="victory">You got it!</article>
+    <article id="victory">
+        <p id="winMsg">You got it!</p>
+        <p id="winRestart">Press - Restart Game - to play again!</p>
+
+    </article>
 
 
 </main>

@@ -1,68 +1,241 @@
-div {
-    width: 30px;
-    height: 30px;
-    display:flex;
+
+
+
+body {
+    
+    background: linear-gradient(to top, #ff5e62, #ff9966); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    min-height: 98vh;
+}
+
+
+header {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 350px;
+    margin-bottom: 60px;
 }
 
-.W {
-    background-color: blue;
-}
+    #title {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 30%;
+        margin-top: 30px ;
+        margin-bottom: 40px;
 
-.F {
-    background-image: url("img/chegada.jpg") ;
-    background-size: contain;
-}
 
-.S {
-    background-color: green ;
-    color:white;
-    font-size: 12px ;
-    font-weight: bold;
-}
+    }
 
-#player {
-    position:absolute;
-    background-color: tomato;
-    border-radius: 50%;
-    height: 24px;
-    width: 24px; 
-    box-sizing: border-box;
-}
+        h1 {
+            height: 100%;
+            font-family: 'Dela Gothic One', cursive;
+            color: #F3EB08;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: #4d4a03;
+            font-size: 60px;
+            text-align: center;
+            margin-bottom: 0;
+            margin-right: 20px;
+        }
+
+        #imgTitle {
+            width: 100px;
+        }
+
+
+    #botao{
+        width: 100%;
+        height: 30% ;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+        #startGame {
+            background: linear-gradient(to top, #e44d26, #f16529); 
+            color:white;
+            font-size: 20px;
+            font-weight: bold;
+            width: 150px;
+            height: 50px;
+            border: 2px solid rgb(197, 192, 192);
+            border-radius: 10px;
+        }
+
+        
+        #restartGame {
+            display: none;
+            background: linear-gradient(to top, #e44d26, #f16529); 
+            color:white;
+            font-size: 20px;
+            font-weight: bold;
+            width: 150px;
+            height: 50px;
+            border: 2px solid rgb(197, 192, 192);
+            border-radius: 10px;
+        }
+
+        #startGame:hover, #restartGame:hover  {
+            background: white; 
+            color: #e44d26;
+        }
+
+
+    #selectMap{
+        width: 670px;
+        height: 140px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        padding: 5px 0;
+        border-radius: 20px;
+        margin-bottom: 40px;
+    }
+
+    .maps {
+        height: 100%;
+        width: 180px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+
+    .mapAnounce{
+        color: #F3EB08;
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: #4d4a03;
+        font-family: 'Dela Gothic One', cursive;
+        font-weight: bold;
+        font-size: 20px;
+        width: 120px;
+        text-align: center;
+        padding-left: 15px;
+    }
+
+    .mapTitle {
+        margin: 0 0 5px 0;
+        font-size: 15px ;
+        font-weight: bold;
+        color: #F3EB08;
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: #4d4a03;
+        font-family: 'Dela Gothic One', cursive;
+
+    }
+
+    .mapsImg {
+        background-color: white;
+        padding: 5px;
+        width: 120px;
+        border-radius: 10px;
+    }
+
+    .mapsImg:hover{
+        width: 130px;
+        border: 2px solid #4d4a03;
+    }
+
+
+
 
 main {
-    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position:relative;
-    width: fit-content
+    width: 100%;
 }
 
-section {
-    min-width: 630px;
-    max-width: 630px;
-    height: fit-content;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    box-sizing: content-box;
-    padding: 2px;
-    border: 1px grey dotted;
-}
+    section {
+        min-width: 630px;
+        max-width: 630px;
+        min-height: 450px;
+        max-height: 450px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        box-sizing: content-box;
+        padding: 20px;
+        border-radius: 20px;
+        background-color: white;
+    }
+
+        div {
+            width: 30px;
+            height: 30px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .W {
+            background-color: rgb(0, 255, 128);
+        }
+
+        .F {
+            background-image: url("img/chegada.jpg") ;
+            background-size: contain;
+        }
+
+        .S {
+            background-color: green ;
+            color:white;
+            font-size: 10px ;
+            font-weight: bold;
+            font-family: 'comic sans', sans-serif;
+        }
+
+        #player {
+            position:absolute;
+            background-image: url("img/player.png");
+            background-size: contain;
+            border-radius: 50%;
+            height: 31px;
+            width: 31px; 
+            box-sizing: border-box;
+        }
+   
 
 article {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(133, 155, 196, 0.459);
+    width: 630px;
+    height: 450px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: rgba(52, 255, 62, 0.322);
     position: absolute;
     top: 0;
-    color: yellow;
-    font-size: 80px;
     display: none;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: 'Dela Gothic One', cursive;
-    -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: rgb(68, 68, 5);
-
+    border: 1px rgba(133, 155, 196, 0.836) solid;
 }
+
+    #winMsg {
+        font-size: 80px;
+        text-align: center;
+        margin-bottom: 10px;
+        color: yellow;
+        -webkit-text-stroke-width: 2px;
+    }
+
+    #winRestart {
+        font-size: 30px;
+        text-align: center;
+        color: rgb(255, 202, 58);
+        -webkit-text-stroke-width: 1px;
+    }
+
 

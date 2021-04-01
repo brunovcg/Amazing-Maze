@@ -1,4 +1,6 @@
-const map = [
+
+// Mapas Disponiveis --------------------------------------------------------
+const map1 = [
     "WWWWWWWWWWWWWWWWWWWWW",
     "W   W     W     W W W",
     "W W W WWW WWWWW W W W",
@@ -16,13 +18,149 @@ const map = [
     "WWWWWWWWWWWWWWWWWWWWW",
 ];
 
-let currentMap = map
+const map2 = [
+    "WWSWWWWWWWWWWWWWWWWWW",
+    "W  W        W W     W",
+    "W WW WW WWW W WWWWW W",
+    "W W  W  W W       W W",
+    "W W WW WW WWWWWWW W W",
+    "W W  W          W   W",
+    "W WW WWWWW WWWWWWWW W",
+    "W  W   W W    W     W",
+    "WW WWW W WWWW WWWWWWW",
+    "WW     W   W    W   W",
+    "WWW WWWW WWW WWWW W W",
+    "W W W    W        W W",
+    "W W W WWWW WWWW WWW W",
+    "W   W      W    W   W",
+    "WWWWWWWWWWWWWWWWWFWWW",
+];
 
-// ---------------------- FUNCTIONS --------------------------------------------------------------
+const map3 = [
+    "WWWWWWWWWWWWWWWWWWWWW",
+    "W         W         W",
+    "S WWWWWWW W WWWW WW W",
+    "WWW    W  W W    W  W",
+    "F W WW W WW W WWWW WW",
+    "W W  W         W   WW",
+    "W WW WWW WWWWWWW WWWW",
+    "W W  W           W  W",
+    "W W WWWWWWWW W W WW W",
+    "W WWW      W W WWW  W",
+    "W      WWWWW W     WW",
+    "WWW  W W     W WWW  W",
+    "W WWWW W WWW W W W WW",
+    "W        W          W",
+    "WWWWWWWWWWWWWWWWWWWWW"
+
+];
+
+
+// STATEMENTS --------------------------------------------------------
+let currentMap = "";
+let startPosition = "";
+let currentPosition = "";
+let currentArray = "";
+
+
+const mapOne = document.getElementById("mapOne");
+const mapTwo = document.getElementById("mapTwo");
+const mapThree = document.getElementById("mapThree");
+const starter = document.getElementById("startGame");
+const restarter = document.getElementById("restartGame");
+const toVictory = document.getElementById("victory");
+const section = document.getElementById("gameBoard");
+
+
+// Escolhendo o Mapa
+mapOne.addEventListener("click", function(){
+
+    removeAllChildNodes(section)
+
+    starter.style.display = "inline-block"
+    restarter.style.display = "none"
+    starter.style.disabled = "false"
+    
+
+    currentMap = map1
+
+    for (let i=0; i< currentMap.length;i++) {
+
+        for (let j = 0 ; j < currentMap[i].length; j++){
+        
+            createMap(currentMap,i,j)
+    
+            if (currentMap[i][j] == "S") {
+                startPosition = `${i}+${j}`
+            }
+        }
+    }
+
+    currentPosition = startPosition
+    currentArray = currentPosition.split("+");
+})
+
+mapTwo.addEventListener("click", function(){
+
+    removeAllChildNodes(section)
+
+    starter.style.display = "inline-block"
+    restarter.style.display = "none"
+    starter.style.disabled = "false"
+
+
+
+    currentMap = map2
+
+    for (let i=0; i< currentMap.length;i++) {
+
+        for (let j = 0 ; j < currentMap[i].length; j++){
+        
+            createMap(currentMap,i,j)
+    
+            if (currentMap[i][j] == "S") {
+                startPosition = `${i}+${j}`
+            }
+        }
+    }
+
+    currentPosition = startPosition
+    currentArray = currentPosition.split("+");
+})
+
+mapThree.addEventListener("click", function(){
+
+    removeAllChildNodes(section)
+
+    starter.style.display = "inline-block"
+    restarter.style.display = "none"
+    starter.style.disabled = "false"
+
+    currentMap = map3
+
+    for (let i=0; i< currentMap.length;i++) {
+
+        for (let j = 0 ; j < currentMap[i].length; j++){
+        
+            createMap(currentMap,i,j)
+    
+            if (currentMap[i][j] == "S") {
+                startPosition = `${i}+${j}`
+            }
+        }
+    }
+
+    currentPosition = startPosition
+    currentArray = currentPosition.split("+");
+})
+
+
+
+// ---------------------- FUNCTIONS ------------------------------------------------------------
 
 // Função para criar o MAPA
 function createMap(map,line,column) {
-    let section = document.getElementById("gameBoard");
+    
     let divCreate = document.createElement("div");
     divCreate.setAttribute("id",`${line}+${column}`);
     divCreate.setAttribute("class", map[line][column])
@@ -33,10 +171,6 @@ function createMap(map,line,column) {
       
     section.appendChild(divCreate)
 } 
-
-let startPosition = "9+0"
-let currentPosition = startPosition
-let currentArray = currentPosition.split("+")
 
 
 // Função para criar o jogador
@@ -52,35 +186,42 @@ function replacePlayer(cellId) {
     let current = document.getElementById(cellId);
     let player = document.getElementById("player")
     current.removeChild(player)
+
+}
+
+// remove o mapa
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
 }
 
 // função da vitória
 function victory(){
-
-    let toVictory = document.getElementById("victory");
-
     toVictory.style.display = "flex"
 }
 
 // ------------------- GAME START ----------------------------------------------------------------
 
-// Criando MAPA
-for (let i=0; i< currentMap.length;i++) {
-
-    for (let j = 0 ; j < currentMap[i].length; j++){
-    
-        createMap(currentMap,i,j)
-
-    }
-}
-
 
 // inciando o jogador na tela
-const starter = document.getElementById("startGame");
+
 starter.addEventListener("click", function() {
-createPlayer(startPosition)})
+    createPlayer(startPosition)
+    restarter.style.display="inline-block"
+    starter.style.display = "none"
+}
+)
 
-
+restarter.addEventListener("click", function() {
+    
+    toVictory.style.display = "none"
+    replacePlayer(currentPosition)
+    createPlayer(startPosition)
+    currentPosition = startPosition
+    currentArray = currentPosition.split("+");
+    }
+)
 
 
 // ------------------- MOVING PLAYER --------------------------------------------------
@@ -105,7 +246,7 @@ document.addEventListener('keydown', function logKey(e) {
             if (testWall === "F"){
                 console.log("you win!")
                 victory()
-                replacePlayer(currentPosition)
+                
             }
         }        
       
@@ -127,7 +268,7 @@ document.addEventListener('keydown', function logKey(e) {
             if (testWall === "F"){
                 console.log("you win!")
                 victory()
-                replacePlayer(currentPosition)
+                // replacePlayer(currentPosition)
             }
         }     
   
@@ -149,7 +290,7 @@ document.addEventListener('keydown', function logKey(e) {
                 if (testWall === "F"){
                     console.log("you win!")
                     victory()
-                    replacePlayer(currentPosition)
+                    // replacePlayer(currentPosition)
                 }
            }   
      
@@ -171,7 +312,7 @@ document.addEventListener('keydown', function logKey(e) {
             if (testWall === "F"){
                 console.log("you win!")
                 victory()
-                replacePlayer(currentPosition)
+                // replacePlayer(currentPosition)
             }
    }
 
