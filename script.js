@@ -54,6 +54,14 @@ function replacePlayer(cellId) {
     current.removeChild(player)
 }
 
+// função da vitória
+function victory(){
+
+    let toVictory = document.getElementById("victory");
+
+    toVictory.style.display = "flex"
+}
+
 // ------------------- GAME START ----------------------------------------------------------------
 
 // Criando MAPA
@@ -73,39 +81,62 @@ starter.addEventListener("click", function() {
 createPlayer(startPosition)})
 
 
-// replacePlayer(currentPosition)
-
-
-// console.log(player.parentElement.className)
-// console.log(player.parentElement.id)
-// let teste = document.getElementById("8+20")
-// console.log(teste.className)
 
 
 // ------------------- MOVING PLAYER --------------------------------------------------
 
 document.addEventListener('keydown', function logKey(e) {
-
-    console.log(e.code)
-           
+          
       if (e.code == "ArrowUp") {
 
-        
-     
+        let newMove = `${parseInt(currentArray[0])-1}+${parseInt(currentArray[1])}`
+
+        let testWall = document.getElementById(newMove).className
+               
+        if (testWall !== "W") {
+                    
+            replacePlayer(currentPosition)
+
+            createPlayer(newMove)
+
+            currentPosition = newMove
+            currentArray = newMove.split("+")
+
+            if (testWall === "F"){
+                console.log("you win!")
+                victory()
+                replacePlayer(currentPosition)
+            }
+        }        
       
       } else if (e.code == "ArrowDown") {
-      
-     
+
+        let newMove = `${parseInt(currentArray[0])+1}+${parseInt(currentArray[1])}`
+
+        let testWall = document.getElementById(newMove).className
+               
+        if (testWall !== "W") {
+                    
+            replacePlayer(currentPosition)
+
+            createPlayer(newMove)
+
+            currentPosition = newMove
+            currentArray = newMove.split("+")
+
+            if (testWall === "F"){
+                console.log("you win!")
+                victory()
+                replacePlayer(currentPosition)
+            }
+        }     
   
       } else if (e.code == "ArrowRight") {
+            
+            let newMove = `${parseInt(currentArray[0])}+${parseInt(currentArray[1])+1}`
 
-            
-                let newMove = `${parseInt(currentArray[0])}+${parseInt(currentArray[1])+1}`
-
-                let testWall = document.getElementById(newMove).className
-            
-                console.log(testWall)
-            
+            let testWall = document.getElementById(newMove).className
+                       
             if (testWall !== "W") {
                             
                 replacePlayer(currentPosition)
@@ -115,13 +146,36 @@ document.addEventListener('keydown', function logKey(e) {
                 currentPosition = newMove
                 currentArray = newMove.split("+")
 
-
                 if (testWall === "F"){
                     console.log("you win!")
+                    victory()
+                    replacePlayer(currentPosition)
                 }
            }   
      
-      } else {}
+      } else {
+
+    let newMove = `${parseInt(currentArray[0])}+${parseInt(currentArray[1])-1}`
+
+    let testWall = document.getElementById(newMove).className
+               
+    if (testWall !== "W") {
+                    
+            replacePlayer(currentPosition)
+
+            createPlayer(newMove)
+
+            currentPosition = newMove
+            currentArray = newMove.split("+")
+
+            if (testWall === "F"){
+                console.log("you win!")
+                victory()
+                replacePlayer(currentPosition)
+            }
+   }
+
+      }
 });
 
 
