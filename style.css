@@ -1,0 +1,46 @@
+div {
+    width: 30px;
+    height: 30px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.W {
+    background-color: blue;
+}
+
+.F {
+    background-image: url("img/chegada.jpg") ;
+    background-size: contain;
+}
+
+.S {
+    background-color: green ;
+    color:white;
+    font-size: 12px ;
+    font-weight: bold;
+}
+
+
+section {
+    min-width: 630px;
+    max-width: 630px;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    box-sizing: content-box;
+    padding: 2px;
+    border: 1px grey dotted;
+}
+
+#player {
+    position:absolute;
+    background-color: tomato;
+    border-radius: 50%;
+    height: 24px;
+    width: 24px; 
+    box-sizing: border-box;
+      
+}
