@@ -133,7 +133,6 @@ showCount.innerHTML = 0
 
 
 
-
 // Escolhendo o Mapa
 mapOne.addEventListener("click", function(){
 
@@ -151,6 +150,8 @@ mapOne.addEventListener("click", function(){
     audioEnd.pause()
     audioEnd.currentTime = 0;
     showCount.innerHTML = 0
+    section.style.height = (30*15) + "px"
+    toVictory.style.height = (30*15) + "px"
     
 
     currentMap = map1
@@ -187,6 +188,8 @@ mapTwo.addEventListener("click", function(){
     audioEnd.pause()
     audioEnd.currentTime = 0;
     showCount.innerHTML = 0
+    section.style.height = (30*30) + "px"
+    toVictory.style.height = (30*30) + "px"
     
 
 
@@ -225,6 +228,8 @@ mapThree.addEventListener("click", function(){
     audioEnd.pause()
     audioEnd.currentTime = 0;
     showCount.innerHTML = 0
+    section.style.height = (30*50) + "px"
+    toVictory.style.height = (30*50) + "px"
     
     currentMap = map3
 
@@ -313,6 +318,7 @@ function lost(){
     toVictory.style.backgroundColor = "#f1b4646e"
     replacePlayer(currentPosition)
     windowUp()
+
 }
 
 // subindo a tela

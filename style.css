@@ -94,7 +94,7 @@ header {
         justify-content: center;
         align-items: center;
         background-color: white;
-        padding: 5px 0;
+        padding: 15px 0 5px 0;
         border-radius: 20px;
         margin-bottom: 40px;
     }
@@ -170,7 +170,6 @@ main {
         min-width: 630px;
         max-width: 630px;
         min-height: 450px;
-        height: fit-content;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -218,8 +217,8 @@ main {
 
 article {
     width: 630px;
-    height: 97%;
-    padding: 10px 20px;
+    min-height: 450px;
+    padding: 20px;
     border-radius: 20px;
     position: absolute;
     top: 0;
