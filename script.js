@@ -70,6 +70,9 @@ const starter = document.getElementById("startGame");
 const restarter = document.getElementById("restartGame");
 const toVictory = document.getElementById("victory");
 const section = document.getElementById("gameBoard");
+const audioEnd = new Audio("audio/end.mp3")
+const audioWall = new Audio("audio/wall.mp3")
+
 
 
 // Escolhendo o Mapa
@@ -80,6 +83,10 @@ mapOne.addEventListener("click", function(){
     starter.style.display = "inline-block"
     restarter.style.display = "none"
     starter.style.disabled = "false"
+    mapOne.style.border = "3px #F07E63 solid"
+    mapTwo.style.border = "none"
+    mapThree.style.border = "none"
+    toVictory.style.display = "none"
     
 
     currentMap = map1
@@ -107,6 +114,10 @@ mapTwo.addEventListener("click", function(){
     starter.style.display = "inline-block"
     restarter.style.display = "none"
     starter.style.disabled = "false"
+    mapOne.style.border = "none"
+    mapTwo.style.border = "3px #F07E63 solid"
+    mapThree.style.border = "none"
+    toVictory.style.display = "none"
 
 
 
@@ -135,6 +146,10 @@ mapThree.addEventListener("click", function(){
     starter.style.display = "inline-block"
     restarter.style.display = "none"
     starter.style.disabled = "false"
+    mapOne.style.border = "none"
+    mapTwo.style.border = "none"
+    mapThree.style.border = "3px #F07E63 solid"
+    toVictory.style.display = "none"
 
     currentMap = map3
 
@@ -199,6 +214,8 @@ function removeAllChildNodes(parent) {
 // função da vitória
 function victory(){
     toVictory.style.display = "flex"
+    audioEnd.play()
+    
 }
 
 // ------------------- GAME START ----------------------------------------------------------------
@@ -247,8 +264,8 @@ document.addEventListener('keydown', function logKey(e) {
                 console.log("you win!")
                 victory()
                 
-            }
-        }        
+            } 
+        } else {audioWall.play()}
       
       } else if (e.code == "ArrowDown") {
 
@@ -268,9 +285,9 @@ document.addEventListener('keydown', function logKey(e) {
             if (testWall === "F"){
                 console.log("you win!")
                 victory()
-                // replacePlayer(currentPosition)
-            }
-        }     
+               
+            } 
+        } else {audioWall.play()}
   
       } else if (e.code == "ArrowRight") {
             
@@ -290,9 +307,9 @@ document.addEventListener('keydown', function logKey(e) {
                 if (testWall === "F"){
                     console.log("you win!")
                     victory()
-                    // replacePlayer(currentPosition)
+                   
                 }
-           }   
+           }   else {audioWall.play()}
      
       } else {
 
@@ -312,9 +329,9 @@ document.addEventListener('keydown', function logKey(e) {
             if (testWall === "F"){
                 console.log("you win!")
                 victory()
-                // replacePlayer(currentPosition)
-            }
-   }
+                
+            } 
+   } else {audioWall.play()}
 
       }
 });
