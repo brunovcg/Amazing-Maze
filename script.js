@@ -72,6 +72,8 @@ const toVictory = document.getElementById("victory");
 const section = document.getElementById("gameBoard");
 const audioEnd = new Audio("audio/end.mp3")
 const audioWall = new Audio("audio/wall.mp3")
+const startgame = new Audio("audio/startgame.mp3")
+startgame.volume = 0.3;
 
 
 
@@ -215,6 +217,7 @@ function removeAllChildNodes(parent) {
 function victory(){
     toVictory.style.display = "flex"
     audioEnd.play()
+    startgame.pause()
     
 }
 
@@ -227,6 +230,7 @@ starter.addEventListener("click", function() {
     createPlayer(startPosition)
     restarter.style.display="inline-block"
     starter.style.display = "none"
+    startgame.play()
 }
 )
 
@@ -237,6 +241,7 @@ restarter.addEventListener("click", function() {
     createPlayer(startPosition)
     currentPosition = startPosition
     currentArray = currentPosition.split("+");
+    startgame.play()
     }
 )
 
