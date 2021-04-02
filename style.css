@@ -222,6 +222,7 @@ article {
     font-family: 'Dela Gothic One', cursive;
     -webkit-text-stroke-color: rgb(68, 68, 5);
     border: 1px rgba(133, 155, 196, 0.836) solid;
+    z-index: 5;
 }
 
     #winMsg {

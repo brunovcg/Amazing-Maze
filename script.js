@@ -305,6 +305,7 @@ document.addEventListener('keydown', function logKey(e) {
                 
             } 
         } else {audioWall.play()
+                count++
                 showCount.innerHTML =`${count}`}
       
       } else if (e.code == "ArrowDown") {
@@ -330,6 +331,7 @@ document.addEventListener('keydown', function logKey(e) {
                                
             } 
         } else {audioWall.play()
+                count++
                 showCount.innerHTML =`${count}`}
   
       } else if (e.code == "ArrowRight") {
@@ -355,6 +357,7 @@ document.addEventListener('keydown', function logKey(e) {
                    
                 }
            }   else {audioWall.play()
+                count++
                  showCount.innerHTML =`${count}`}
      
       } else {
@@ -380,6 +383,7 @@ document.addEventListener('keydown', function logKey(e) {
                 
             } 
    } else {audioWall.play()
+        count++
          showCount.innerHTML =`${count}`}
 
       }
