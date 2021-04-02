@@ -61,6 +61,7 @@ let currentMap = "";
 let startPosition = "";
 let currentPosition = "";
 let currentArray = "";
+let count = 0
 
 
 const mapOne = document.getElementById("mapOne");
@@ -73,7 +74,11 @@ const section = document.getElementById("gameBoard");
 const audioEnd = new Audio("audio/end.mp3")
 const audioWall = new Audio("audio/wall.mp3")
 const startgame = new Audio("audio/startgame.mp3")
+const movesCount = document.getElementById("movesCount")
+const showCount = document.getElementById("showCount")
 startgame.volume = 0.3;
+showCount.innerHTML = 0
+
 
 
 
@@ -93,6 +98,7 @@ mapOne.addEventListener("click", function(){
     startgame.currentTime = 0;
     audioEnd.pause()
     audioEnd.currentTime = 0;
+    showCount.innerHTML = 0
     
 
     currentMap = map1
@@ -128,6 +134,7 @@ mapTwo.addEventListener("click", function(){
     startgame.currentTime = 0;
     audioEnd.pause()
     audioEnd.currentTime = 0;
+    showCount.innerHTML = 0
     
 
 
@@ -165,6 +172,7 @@ mapThree.addEventListener("click", function(){
     startgame.currentTime = 0;
     audioEnd.pause()
     audioEnd.currentTime = 0;
+    showCount.innerHTML = 0
 
     currentMap = map3
 
@@ -232,6 +240,7 @@ function victory(){
     startgame.pause()
     startgame.currentTime = 0;
     audioEnd.play()
+    movesCount.innerHTML = `You took ${count} moves`
     
     
 }
@@ -248,6 +257,8 @@ starter.addEventListener("click", function() {
     startgame.pause()
     startgame.currentTime = 0;
     startgame.play()
+    showCount.innerHTML = 0
+    showCount.style.display = "flex"
 }
 )
 
@@ -261,6 +272,8 @@ restarter.addEventListener("click", function() {
     startgame.pause()
     startgame.currentTime = 0;
     startgame.play()
+    showCount.innerHTML = 0
+    showCount.style.display = "flex"
     }
 )
 
@@ -283,13 +296,16 @@ document.addEventListener('keydown', function logKey(e) {
 
             currentPosition = newMove
             currentArray = newMove.split("+")
+            count++
+            showCount.innerHTML =`${count}`
 
             if (testWall === "F"){
                 console.log("you win!")
                 victory()
                 
             } 
-        } else {audioWall.play()}
+        } else {audioWall.play()
+                showCount.innerHTML =`${count}`}
       
       } else if (e.code == "ArrowDown") {
 
@@ -305,13 +321,16 @@ document.addEventListener('keydown', function logKey(e) {
 
             currentPosition = newMove
             currentArray = newMove.split("+")
+            count++
+            showCount.innerHTML =`${count}`
 
             if (testWall === "F"){
                 console.log("you win!")
                 victory()
-               
+                               
             } 
-        } else {audioWall.play()}
+        } else {audioWall.play()
+                showCount.innerHTML =`${count}`}
   
       } else if (e.code == "ArrowRight") {
             
@@ -327,13 +346,16 @@ document.addEventListener('keydown', function logKey(e) {
 
                 currentPosition = newMove
                 currentArray = newMove.split("+")
+                count++
+                showCount.innerHTML =`${count}`
 
                 if (testWall === "F"){
                     console.log("you win!")
                     victory()
                    
                 }
-           }   else {audioWall.play()}
+           }   else {audioWall.play()
+                 showCount.innerHTML =`${count}`}
      
       } else {
 
@@ -349,13 +371,16 @@ document.addEventListener('keydown', function logKey(e) {
 
             currentPosition = newMove
             currentArray = newMove.split("+")
+            count++
+            showCount.innerHTML =`${count}`
 
             if (testWall === "F"){
                 console.log("you win!")
                 victory()
                 
             } 
-   } else {audioWall.play()}
+   } else {audioWall.play()
+         showCount.innerHTML =`${count}`}
 
       }
 });
