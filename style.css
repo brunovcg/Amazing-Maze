@@ -133,6 +133,14 @@ header {
 
     }
 
+    .mapSub {
+        margin: 0;
+        font-size: 12px ;
+        font-family: "Comic Sans", sans-serif;
+        color:#e44d26 ;
+
+    }
+
     .mapsImg {
         background-color: white;
         padding: 5px;
@@ -158,10 +166,11 @@ main {
 }
 
     section {
+        position:relative;
         min-width: 630px;
         max-width: 630px;
         min-height: 450px;
-        max-height: 450px;
+        height: fit-content;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -209,15 +218,14 @@ main {
 
 article {
     width: 630px;
-    height: 450px;
-    padding: 20px;
+    height: 97%;
+    padding: 10px 20px;
     border-radius: 20px;
-    background-color: rgba(52, 255, 62, 0.322);
     position: absolute;
     top: 0;
     display: none;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     font-family: 'Dela Gothic One', cursive;
     -webkit-text-stroke-color: rgb(68, 68, 5);
@@ -235,7 +243,7 @@ article {
 
     #showCount {
         position:absolute;
-        top: 430px;
+        top: -20px;
         background-color: white;
         width: 100px;
         height: 30px;
@@ -244,7 +252,7 @@ article {
         display: none;
         justify-content: center;
         align-items: center;
-        font-family: 'Dela Gothic One', cursive;;
+        font-family: 'Dela Gothic One', cursive;
         color:#e44d26 ;
     }
 

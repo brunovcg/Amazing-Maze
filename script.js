@@ -19,39 +19,89 @@ const map1 = [
 ];
 
 const map2 = [
-    "WWSWWWWWWWWWWWWWWWWWW",
-    "W  W        W W     W",
-    "W WW WW WWW W WWWWW W",
-    "W W  W  W W       W W",
-    "W W WW WW WWWWWWW W W",
-    "W W  W          W   W",
-    "W WW WWWWW WWWWWWWW W",
-    "W  W   W W    W     W",
-    "WW WWW W WWWW WWWWWWW",
-    "WW     W   W    W   W",
-    "WWW WWWW WWW WWWW W W",
-    "W W W    W        W W",
-    "W W W WWWW WWWW WWW W",
-    "W   W      W    W   W",
-    "WWWWWWWWWWWWWWWWWFWWW",
+    'WWSWWWWWWWWWWWWWWWWWW',
+    'W  W         W      W',
+    'W WW WWWWWWW W WWWW W',
+    'W W  W W   W W W    W',
+    'W W WW W W W W W WWWW',
+    'W W W    W   W W    W',
+    'W W W WWWWWWWW WWWW W',
+    'W W W W        W    W',
+    'W W W W WWWWWWWW WWWW',
+    'W   W     W W  W    W',
+    'W WWWWWWWWW WW WW W W',
+    'W W         W   W W W',
+    'W W WWWWWWW W W W W W',
+    'W W     W W   W   W W',
+    'W WWWWW W W W WWWWW W',
+    'W       W W W       W',
+    'WWW WWWWW W WWW WWWWW',
+    'W W W     W W       W',
+    'W W W WWW W W WWWWWWW',
+    'W W W W   W W       W',
+    'W W W WWW   WWWWWWW W',
+    'W W W W W W       W W',
+    'W     W   WWWWWWW W W',
+    'WWWWWWW W       W W W',
+    'W       W WWWWW W W W',
+    'W WWWWWWW   W W W W W',
+    'W W       W   W W WWW',
+    'W WWWWWWWWWWWWW W W F',
+    'W               W   W',
+    'WWWWWWWWWWWWWWWWWWWWW'
 ];
 
 const map3 = [
-    "WWWWWWWWWWWWWWWWWWWWW",
-    "W         W         W",
-    "S WWWWWWW W WWWW WW W",
-    "WWW    W  W W    W  W",
-    "F W WW W WW W WWWW WW",
-    "W W  W         W   WW",
-    "W WW WWW WWWWWWW WWWW",
-    "W W  W           W  W",
-    "W W WWWWWWWW W W WW W",
-    "W WWW      W W WWW  W",
-    "W      WWWWW W     WW",
-    "WWW  W W     W WWW  W",
-    "W WWWW W WWW W W W WW",
-    "W        W          W",
-    "WWWWWWWWWWWWWWWWWWWWW"
+    'WWWWWWWWWWWWWWWWWWWWW',
+    'S        W          W',
+    'W WWWWWW W WWWWW WWWW',
+    'W W      W W   W    W',
+    'W W WWWWWW W WWWWWW W',
+    'W W W      W        W',
+    'W W WWWWWW WWWW WWWWW',
+    'W W             W   W',
+    'W WWWWWWWWWWWWW   W W',
+    'W        W    WWWWW W',
+    'WWWWWWWW WWWW W     W',
+    'W   W  W      WW WW W',
+    'W W W WWWWWWW  W W  W',
+    'W W W WW    WW W W WW',
+    'W W W    W     W W  W',
+    'W W W WW W WWWWW WW W',
+    'W W W W  WWW     W  W',
+    'W W W WW     W W W WW',
+    'W W W  W WWWWW W W  W',
+    'W W WW WWW   W W WW W',
+    'W W    W   W W W  W W',
+    'W WWWWWW WWW W WWWW W',
+    'W        W   W    W W',
+    'WWWWWWWWWW W WWWWWW W',
+    'W          W      W W',
+    'W WWWWWWW WWWWWWWWW W',
+    'W       W W         W',
+    'WWWWWWW W WW WWWWWWWW',
+    'W       W           W',
+    'W WWWWWWWWWWWWWWWWW W',
+    'W                 W W',
+    'W WWWWWWWW W WWWW W W',
+    'W W        W    W W W',
+    'W W WWWWWWWWWWW W W W',
+    'W W        W    W WWW',
+    'W WWWWWWWW WWWWWW   W',
+    'W        W        W W',
+    'W WWWWWW WWWWWWWWWW W',
+    'W      W            W',
+    'WWWWW WW WWWW WWWWWWW',
+    'W   W  W W          W',
+    'W W WW WWW W WWW WWWW',
+    'W W W      W   W    W',
+    'W W WWWWWWWW W WWWW W',
+    'W W   W      W W    W',
+    'W WWW W WWWWWW W WWWW',
+    'W   W W      W W    W',
+    'WWW W WWWWWW W WWWW W',
+    'F   W        W      W',
+    'WWWWWWWWWWWWWWWWWWWWW'
 
 ];
 
@@ -74,8 +124,10 @@ const section = document.getElementById("gameBoard");
 const audioEnd = new Audio("audio/end.mp3")
 const audioWall = new Audio("audio/wall.mp3")
 const startgame = new Audio("audio/startgame.mp3")
+const boo = new Audio("audio/boo.mp3");
 const movesCount = document.getElementById("movesCount")
 const showCount = document.getElementById("showCount")
+const finalMsg = document.getElementById("winMsg")
 startgame.volume = 0.3;
 showCount.innerHTML = 0
 
@@ -173,7 +225,7 @@ mapThree.addEventListener("click", function(){
     audioEnd.pause()
     audioEnd.currentTime = 0;
     showCount.innerHTML = 0
-
+    
     currentMap = map3
 
     for (let i=0; i< currentMap.length;i++) {
@@ -236,14 +288,37 @@ function removeAllChildNodes(parent) {
 
 // função da vitória
 function victory(){
+    finalMsg.innerHTML = `You Got It!`
     toVictory.style.display = "flex"
     startgame.pause()
     startgame.currentTime = 0;
     audioEnd.play()
-    movesCount.innerHTML = `You took ${count} moves`
-    
+    if (currentMap === map3) {
+    movesCount.innerHTML = `It only remained ${count} moves..`
+    } else {movesCount.innerHTML = `You took ${count} moves..`}
+    toVictory.style.backgroundColor = "rgba(52, 255, 62, 0.322)"
+    replacePlayer(currentPosition)
+    windowUp()
     
 }
+
+// função da derrota
+function lost(){
+    finalMsg.innerHTML = `You Lose!`
+    toVictory.style.display = "flex"
+    startgame.pause()
+    startgame.currentTime = 0;
+    boo.play()
+    movesCount.innerHTML = `Your moves got to ZERO!`
+    toVictory.style.backgroundColor = "#f1b4646e"
+    replacePlayer(currentPosition)
+    windowUp()
+}
+
+// subindo a tela
+function windowUp() {
+    window.scrollTo(0, 0);
+};
 
 // ------------------- GAME START ----------------------------------------------------------------
 
@@ -257,23 +332,26 @@ starter.addEventListener("click", function() {
     startgame.pause()
     startgame.currentTime = 0;
     startgame.play()
-    showCount.innerHTML = 0
     showCount.style.display = "flex"
+    if (currentMap === map3) {count = 221} else {count = 0}
+    showCount.innerHTML = count
 }
 )
 
 restarter.addEventListener("click", function() {
-    
+    let player = document.getElementById("player")
+    if(player!=null) {replacePlayer(currentPosition)}
     toVictory.style.display = "none"
-    replacePlayer(currentPosition)
+    
     createPlayer(startPosition)
     currentPosition = startPosition
     currentArray = currentPosition.split("+");
     startgame.pause()
     startgame.currentTime = 0;
     startgame.play()
-    showCount.innerHTML = 0
     showCount.style.display = "flex"
+    if (currentMap === map3) {count = 221} else {count = 0}
+    showCount.innerHTML = count
     }
 )
 
@@ -296,17 +374,32 @@ document.addEventListener('keydown', function logKey(e) {
 
             currentPosition = newMove
             currentArray = newMove.split("+")
-            count++
+            if (currentMap === map3) {count--} else {count++}
             showCount.innerHTML =`${count}`
+
+            if (currentMap === map3 && count === 0){
+                console.log("you lose!")
+                lost() 
+            }  
 
             if (testWall === "F"){
                 console.log("you win!")
                 victory()
                 
             } 
+
+        
+
         } else {audioWall.play()
-                count++
-                showCount.innerHTML =`${count}`}
+                if (currentMap === map3) {count--} else {count++}
+                showCount.innerHTML =`${count}`
+
+                if (currentMap === map3 && count === 0){
+                    console.log("you lose!")
+                    lost() 
+                }  
+            
+            }
       
       } else if (e.code == "ArrowDown") {
 
@@ -322,17 +415,29 @@ document.addEventListener('keydown', function logKey(e) {
 
             currentPosition = newMove
             currentArray = newMove.split("+")
-            count++
+
+            if (currentMap === map3) {count--} else {count++}
             showCount.innerHTML =`${count}`
+
+            if (currentMap === map3 && count === 0){
+                console.log("you lose!")
+                lost() 
+            }  
 
             if (testWall === "F"){
                 console.log("you win!")
                 victory()
                                
             } 
+           
+
         } else {audioWall.play()
-                count++
-                showCount.innerHTML =`${count}`}
+            if (currentMap === map3) {count--} else {count++}
+                showCount.innerHTML =`${count}`
+                if (currentMap === map3 && count === 0){
+                    console.log("you lose!")
+                    lost() 
+                }  }
   
       } else if (e.code == "ArrowRight") {
             
@@ -348,17 +453,27 @@ document.addEventListener('keydown', function logKey(e) {
 
                 currentPosition = newMove
                 currentArray = newMove.split("+")
-                count++
+                if (currentMap === map3) {count--} else {count++}
                 showCount.innerHTML =`${count}`
+
+                if (currentMap === map3 && count === 0){
+                    console.log("you lose!")
+                    lost() 
+                }  
 
                 if (testWall === "F"){
                     console.log("you win!")
                     victory()
-                   
-                }
+                                   }
+                
            }   else {audioWall.play()
-                count++
+                 if (currentMap === map3) {count--} else {count++}
                  showCount.innerHTML =`${count}`}
+
+                 if (currentMap === map3 && count === 0){
+                    console.log("you lose!")
+                    lost() 
+                }  
      
       } else {
 
@@ -374,17 +489,26 @@ document.addEventListener('keydown', function logKey(e) {
 
             currentPosition = newMove
             currentArray = newMove.split("+")
-            count++
+            if (currentMap === map3) {count--} else {count++}
             showCount.innerHTML =`${count}`
+
+            if (currentMap === map3 && count === 0){
+                console.log("you lose!")
+                lost() 
+            }  
 
             if (testWall === "F"){
                 console.log("you win!")
                 victory()
-                
-            } 
+            }
+          
    } else {audioWall.play()
-        count++
+         if (currentMap === map3) {count--} else {count++}
          showCount.innerHTML =`${count}`}
+         if (currentMap === map3 && count === 0){
+            console.log("you lose!")
+            lost() 
+        }  
 
       }
 });
