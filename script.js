@@ -89,6 +89,10 @@ mapOne.addEventListener("click", function(){
     mapTwo.style.border = "none"
     mapThree.style.border = "none"
     toVictory.style.display = "none"
+    startgame.pause()
+    startgame.currentTime = 0;
+    audioEnd.pause()
+    audioEnd.currentTime = 0;
     
 
     currentMap = map1
@@ -120,6 +124,11 @@ mapTwo.addEventListener("click", function(){
     mapTwo.style.border = "3px #F07E63 solid"
     mapThree.style.border = "none"
     toVictory.style.display = "none"
+    startgame.pause()
+    startgame.currentTime = 0;
+    audioEnd.pause()
+    audioEnd.currentTime = 0;
+    
 
 
 
@@ -152,6 +161,10 @@ mapThree.addEventListener("click", function(){
     mapTwo.style.border = "none"
     mapThree.style.border = "3px #F07E63 solid"
     toVictory.style.display = "none"
+    startgame.pause()
+    startgame.currentTime = 0;
+    audioEnd.pause()
+    audioEnd.currentTime = 0;
 
     currentMap = map3
 
@@ -216,8 +229,10 @@ function removeAllChildNodes(parent) {
 // função da vitória
 function victory(){
     toVictory.style.display = "flex"
-    audioEnd.play()
     startgame.pause()
+    startgame.currentTime = 0;
+    audioEnd.play()
+    
     
 }
 
@@ -230,6 +245,8 @@ starter.addEventListener("click", function() {
     createPlayer(startPosition)
     restarter.style.display="inline-block"
     starter.style.display = "none"
+    startgame.pause()
+    startgame.currentTime = 0;
     startgame.play()
 }
 )
@@ -241,6 +258,8 @@ restarter.addEventListener("click", function() {
     createPlayer(startPosition)
     currentPosition = startPosition
     currentArray = currentPosition.split("+");
+    startgame.pause()
+    startgame.currentTime = 0;
     startgame.play()
     }
 )
