@@ -1,5 +1,5 @@
 
-// Mapas Disponiveis --------------------------------------------------------
+// Maps Available --------------------------------------------------------
 const map1 = [
     "WWWWWWWWWWWWWWWWWWWWW",
     "W   W     W     W W W",
@@ -113,7 +113,6 @@ let currentPosition = "";
 let currentArray = "";
 let count = 0
 
-
 const mapOne = document.getElementById("mapOne");
 const mapTwo = document.getElementById("mapTwo");
 const mapThree = document.getElementById("mapThree");
@@ -131,42 +130,21 @@ const finalMsg = document.getElementById("winMsg")
 startgame.volume = 0.3;
 showCount.innerHTML = 0
 
-
-
-// Escolhendo o Mapa
+// Maps choice ----------------------------------------------------------------------------------
 mapOne.addEventListener("click", function(){
 
-    removeAllChildNodes(section)
+    mapReset()
 
-    starter.style.display = "inline-block"
-    restarter.style.display = "none"
-    starter.style.disabled = "false"
     mapOne.style.border = "3px #F07E63 solid"
     mapTwo.style.border = "none"
     mapThree.style.border = "none"
-    toVictory.style.display = "none"
-    startgame.pause()
-    startgame.currentTime = 0;
-    audioEnd.pause()
-    audioEnd.currentTime = 0;
-    showCount.innerHTML = 0
+
     section.style.height = (30*15) + "px"
     toVictory.style.height = (30*15) + "px"
     
-
     currentMap = map1
 
-    for (let i=0; i< currentMap.length;i++) {
-
-        for (let j = 0 ; j < currentMap[i].length; j++){
-        
-            createMap(currentMap,i,j)
-    
-            if (currentMap[i][j] == "S") {
-                startPosition = `${i}+${j}`
-            }
-        }
-    }
+   forMap(currentMap)
 
     currentPosition = startPosition
     currentArray = currentPosition.split("+");
@@ -174,39 +152,18 @@ mapOne.addEventListener("click", function(){
 
 mapTwo.addEventListener("click", function(){
 
-    removeAllChildNodes(section)
+    mapReset()
 
-    starter.style.display = "inline-block"
-    restarter.style.display = "none"
-    starter.style.disabled = "false"
     mapOne.style.border = "none"
     mapTwo.style.border = "3px #F07E63 solid"
     mapThree.style.border = "none"
-    toVictory.style.display = "none"
-    startgame.pause()
-    startgame.currentTime = 0;
-    audioEnd.pause()
-    audioEnd.currentTime = 0;
-    showCount.innerHTML = 0
+
     section.style.height = (30*30) + "px"
     toVictory.style.height = (30*30) + "px"
     
-
-
-
     currentMap = map2
 
-    for (let i=0; i< currentMap.length;i++) {
-
-        for (let j = 0 ; j < currentMap[i].length; j++){
-        
-            createMap(currentMap,i,j)
-    
-            if (currentMap[i][j] == "S") {
-                startPosition = `${i}+${j}`
-            }
-        }
-    }
+    forMap(currentMap)
 
     currentPosition = startPosition
     currentArray = currentPosition.split("+");
@@ -214,46 +171,26 @@ mapTwo.addEventListener("click", function(){
 
 mapThree.addEventListener("click", function(){
 
-    removeAllChildNodes(section)
+    mapReset()
 
-    starter.style.display = "inline-block"
-    restarter.style.display = "none"
-    starter.style.disabled = "false"
     mapOne.style.border = "none"
     mapTwo.style.border = "none"
     mapThree.style.border = "3px #F07E63 solid"
-    toVictory.style.display = "none"
-    startgame.pause()
-    startgame.currentTime = 0;
-    audioEnd.pause()
-    audioEnd.currentTime = 0;
-    showCount.innerHTML = 0
+
     section.style.height = (30*50) + "px"
     toVictory.style.height = (30*50) + "px"
     
     currentMap = map3
 
-    for (let i=0; i< currentMap.length;i++) {
-
-        for (let j = 0 ; j < currentMap[i].length; j++){
-        
-            createMap(currentMap,i,j)
-    
-            if (currentMap[i][j] == "S") {
-                startPosition = `${i}+${j}`
-            }
-        }
-    }
+    forMap(currentMap)
 
     currentPosition = startPosition
     currentArray = currentPosition.split("+");
 })
 
-
-
 // ---------------------- FUNCTIONS ------------------------------------------------------------
 
-// Função para criar o MAPA
+// Map criation function
 function createMap(map,line,column) {
     
     let divCreate = document.createElement("div");
@@ -268,7 +205,7 @@ function createMap(map,line,column) {
 } 
 
 
-// Função para criar o jogador
+// Player criation function
 function createPlayer(cellId) {
     let start = document.getElementById(cellId);
     let divCreate = document.createElement("div");
@@ -276,7 +213,7 @@ function createPlayer(cellId) {
     start.appendChild(divCreate)
 }
 
-// função para remover o jogador do local atual
+// Player replace function
 function replacePlayer(cellId) {
     let current = document.getElementById(cellId);
     let player = document.getElementById("player")
@@ -284,14 +221,14 @@ function replacePlayer(cellId) {
 
 }
 
-// remove o mapa
+// Map remove
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
 }
 
-// função da vitória
+// Victory function
 function victory(){
     finalMsg.innerHTML = `You Got It!`
     toVictory.style.display = "flex"
@@ -307,7 +244,7 @@ function victory(){
     
 }
 
-// função da derrota
+// Lost Function
 function lost(){
     finalMsg.innerHTML = `You Lose!`
     toVictory.style.display = "flex"
@@ -321,16 +258,58 @@ function lost(){
 
 }
 
-// subindo a tela
+// Window up function
 function windowUp() {
     window.scrollTo(0, 0);
 };
 
+// Loop for function to create map
+function forMap(current) { 
+    
+    for (let i=0; i< current.length;i++) {
+
+    for (let j = 0 ; j < current[i].length; j++){
+    
+        createMap(current,i,j)
+
+        if (current[i][j] == "S") {
+            startPosition = `${i}+${j}`
+        }
+    }
+}
+}
+
+// Reset Maps proprieties
+function mapReset() {
+    removeAllChildNodes(section)
+    starter.style.display = "inline-block"
+    restarter.style.display = "none"
+    starter.style.disabled = "false"
+    toVictory.style.display = "none"
+    startgame.pause()
+    startgame.currentTime = 0;
+    audioEnd.pause()
+    audioEnd.currentTime = 0;
+    showCount.innerHTML = 0
+}
+
+// Function started after hit Wall
+function wallHit(current){
+    
+    audioWall.play()
+    if (current === map3) {count--} else {count++}
+    showCount.innerHTML =`${count}`
+
+    if (current === map3 && count < 0){
+        console.log("you lose!")
+        lost() 
+    } 
+}
+
+
 // ------------------- GAME START ----------------------------------------------------------------
 
-
-// inciando o jogador na tela
-
+// Start game 
 starter.addEventListener("click", function() {
     createPlayer(startPosition)
     restarter.style.display="inline-block"
@@ -344,6 +323,7 @@ starter.addEventListener("click", function() {
 }
 )
 
+// Restart game
 restarter.addEventListener("click", function() {
     let player = document.getElementById("player")
     if(player!=null) {replacePlayer(currentPosition)}
@@ -362,11 +342,12 @@ restarter.addEventListener("click", function() {
 )
 
 
-// ------------------- MOVING PLAYER --------------------------------------------------
+// ------------------- MOVING PLAYER ------------------------------------------------------------
+
 
 document.addEventListener('keydown', function logKey(e) {
           
-      if (e.code == "ArrowUp") {
+    if (e.code == "ArrowUp") {
 
         let newMove = `${parseInt(currentArray[0])-1}+${parseInt(currentArray[1])}`
 
@@ -383,31 +364,19 @@ document.addEventListener('keydown', function logKey(e) {
             if (currentMap === map3) {count--} else {count++}
             showCount.innerHTML =`${count}`
 
-            if (currentMap === map3 && count === 0){
-                console.log("you lose!")
+            if (currentMap === map3 && count < 0){
+                
                 lost() 
             }  
 
             if (testWall === "F"){
-                console.log("you win!")
-                victory()
                 
-            } 
+                victory()
+            }       
 
-        
-
-        } else {audioWall.play()
-                if (currentMap === map3) {count--} else {count++}
-                showCount.innerHTML =`${count}`
-
-                if (currentMap === map3 && count === 0){
-                    console.log("you lose!")
-                    lost() 
-                }  
-            
-            }
+        } else {wallHit(currentMap)}
       
-      } else if (e.code == "ArrowDown") {
+    } else if (e.code == "ArrowDown") {
 
         let newMove = `${parseInt(currentArray[0])+1}+${parseInt(currentArray[1])}`
 
@@ -425,27 +394,19 @@ document.addEventListener('keydown', function logKey(e) {
             if (currentMap === map3) {count--} else {count++}
             showCount.innerHTML =`${count}`
 
-            if (currentMap === map3 && count === 0){
-                console.log("you lose!")
+            if (currentMap === map3 && count < 0){
+                
                 lost() 
             }  
 
             if (testWall === "F"){
-                console.log("you win!")
-                victory()
-                               
+                
+                victory()             
             } 
            
-
-        } else {audioWall.play()
-            if (currentMap === map3) {count--} else {count++}
-                showCount.innerHTML =`${count}`
-                if (currentMap === map3 && count === 0){
-                    console.log("you lose!")
-                    lost() 
-                }  }
+        } else {wallHit(currentMap)}
   
-      } else if (e.code == "ArrowRight") {
+    } else if (e.code == "ArrowRight") {
             
             let newMove = `${parseInt(currentArray[0])}+${parseInt(currentArray[1])+1}`
 
@@ -462,60 +423,46 @@ document.addEventListener('keydown', function logKey(e) {
                 if (currentMap === map3) {count--} else {count++}
                 showCount.innerHTML =`${count}`
 
-                if (currentMap === map3 && count === 0){
-                    console.log("you lose!")
+                if (currentMap === map3 && count < 0){
+                    
                     lost() 
                 }  
 
                 if (testWall === "F"){
-                    console.log("you win!")
+                    
                     victory()
-                                   }
+                }
                 
-           }   else {audioWall.play()
-                 if (currentMap === map3) {count--} else {count++}
-                 showCount.innerHTML =`${count}`}
+           } else {wallHit(currentMap)}  
+     
+    } else {
 
-                 if (currentMap === map3 && count === 0){
-                    console.log("you lose!")
+            let newMove = `${parseInt(currentArray[0])}+${parseInt(currentArray[1])-1}`
+
+            let testWall = document.getElementById(newMove).className
+                    
+            if (testWall !== "W") {
+                    
+                replacePlayer(currentPosition)
+
+                createPlayer(newMove)
+
+                currentPosition = newMove
+                currentArray = newMove.split("+")
+                if (currentMap === map3) {count--} else {count++}
+                showCount.innerHTML =`${count}`
+
+                if (currentMap === map3 && count < 0){
+                    
                     lost() 
                 }  
-     
-      } else {
 
-    let newMove = `${parseInt(currentArray[0])}+${parseInt(currentArray[1])-1}`
-
-    let testWall = document.getElementById(newMove).className
-               
-    if (testWall !== "W") {
+                if (testWall === "F"){
                     
-            replacePlayer(currentPosition)
-
-            createPlayer(newMove)
-
-            currentPosition = newMove
-            currentArray = newMove.split("+")
-            if (currentMap === map3) {count--} else {count++}
-            showCount.innerHTML =`${count}`
-
-            if (currentMap === map3 && count === 0){
-                console.log("you lose!")
-                lost() 
-            }  
-
-            if (testWall === "F"){
-                console.log("you win!")
-                victory()
-            }
+                    victory()
+                }
           
-   } else {audioWall.play()
-         if (currentMap === map3) {count--} else {count++}
-         showCount.innerHTML =`${count}`}
-         if (currentMap === map3 && count === 0){
-            console.log("you lose!")
-            lost() 
-        }  
-
+            } else {wallHit(currentMap)}  
       }
 });
 
